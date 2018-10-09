@@ -13,18 +13,12 @@ import mvc.model.DAO;
 
 @Controller
 public class NotaController {
-	@RequestMapping("/")
-    public String execute() {
-        System.out.println("Abrindo o criar notas");
-        return "newNote";
-    }
 	@RequestMapping("CriaNota")
 	public String adiciona(HttpSession session,@RequestParam(value = "titulo") String titulo,
 			@RequestParam(value = "nota_text") String texto) throws SQLException{
 		Nota nota = new Nota();
 		DAO dao = new DAO();
-		String personIdString = (String) session.getAttribute("idLogado");
-		Integer personId = Integer.parseInt(personIdString);
+		Integer personId = (Integer) session.getAttribute("idLogado");
 		
 		nota.setPersonId(personId);
 		nota.setNote(texto);
@@ -38,13 +32,38 @@ public class NotaController {
 	@RequestMapping("DeletaNota")
 	public String deleta(HttpSession session,@RequestParam(value = "nota_id") Integer notaId) throws SQLException {
 		DAO dao = new DAO();
-		String personIdString = (String) session.getAttribute("idLogado");
-		Integer personId = Integer.parseInt(personIdString);
-		
-		
+		Integer personId = (Integer) session.getAttribute("idLogado");
+	
 		dao.removeNota(notaId,personId);
 		dao.close();
 		return "home";
 	}
-
+	
+	@RequestMapping("EditaNota")
+	public String edita(HttpSession session,@RequestParam(value = "nota_id") Integer notaId,
+			@RequestParam(value = "titulo") String titulo,
+			@RequestParam(value = "nota_text") String texto) throws SQLException {
+		Nota nota = new Nota();
+		DAO dao = new DAO();
+		Integer personId = (Integer) session.getAttribute("idLogado");
+		
+		nota.setPersonId(personId);
+		nota.setNote(texto);
+		nota.setTitle(titulo);
+		
+		dao.alteraNota(nota);
+		dao.close();
+		
+		return "home";
+	}
+	
+	@RequestMapping("FormNovaNota")
+	String callForm(){
+		return "newNote";
+	}
+	
+	@RequestMapping("FormEditaNota")
+	String callEdit(){
+		return "editNote";
+	}
 }
