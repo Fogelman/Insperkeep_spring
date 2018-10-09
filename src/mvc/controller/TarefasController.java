@@ -8,11 +8,11 @@ import mvc.model.TarefasDAO;
 
 @Controller
 public class TarefasController {
-    @RequestMapping("/")
-    public String execute() {
-        System.out.println("Lógica do MVC");
-        return "info";
-    }
+//    @RequestMapping("/")
+//    public String execute() {
+//        System.out.println("Lógica do MVC");
+//        return "info";
+//    }
     @RequestMapping("criaTarefa"
     		)
     		    public String form() {
@@ -27,4 +27,7 @@ tarefa) {
      dao.adicionaDescricao(tarefa);
         return "adicionada";
     }
-}
+    
+    
+    
+}	
