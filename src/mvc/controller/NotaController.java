@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -58,12 +59,19 @@ public class NotaController {
 	}
 	
 	@RequestMapping("FormNovaNota")
-	String callForm(){
+	public String callForm(){
 		return "newNote";
 	}
 	
 	@RequestMapping("FormEditaNota")
-	String callEdit(){
+	public String callEdit(HttpSession session,@RequestParam(value = "nota_id") Integer notaId, ModelMap model) throws SQLException{
+		DAO dao = new DAO();
+		Integer personId = (Integer) session.getAttribute("idLogado");
+		Nota nota = dao.getSpecificNote(notaId, personId);
+		model.addAttribute("notaId", notaId);
+		model.addAttribute("titulo", nota.getTitle());
+		model.addAttribute("texto", nota.getNote());
+		
 		return "editNote";
 	}
 }

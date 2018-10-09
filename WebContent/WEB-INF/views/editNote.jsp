@@ -22,7 +22,6 @@
 <title>Editar nota</title>
 </head>
 <body>
-	<%@ page import="java.util.*,br.edu.insper.*"%>
 	
 	<%@ page import="javax.servlet.ServletException"%>
 	<%@ page import="javax.servlet.annotation.WebServlet"%>
@@ -31,21 +30,14 @@
 	<%@ page import="javax.servlet.http.HttpServletResponse"%>
 	
 	<div class="container">
-	
-	
-			<% 
-			Integer id = Integer.parseInt(request.getParameter("nota_id"));
-			String i = request.getParameter("person_id");
-			Integer i_int = Integer.parseInt(i);%>
 			
 			
-			
-		<jsp:include page="header.jsp">
+		<%-- <jsp:include page="header.jsp">
 		
 		<jsp:param name="id_header" value = "<%=i%>" />
 		
 		
-		</jsp:include>
+		</jsp:include> --%>
 
 <br>
 
@@ -54,32 +46,25 @@
 			<!-- TODO: Passar os ids da nota e da pessoa aqui -->
 
 			
-			<input type="hidden" name="nota_id" value="<%=id%>" />
-			<input type="hidden" name="i" value="<%=i_int%>" />
+			<input type="hidden" name="nota_id" value="${notaId}" />
 			
 			<div class="form-group">
 			  <label for="title_id"><b>Título da nota *</b></label>
 			 	
-			 	
-			<%
-					DAO dao = new DAO();
-					Nota nota = dao.getSpecificNote(id,i_int);
-				%>			 	
+			 				 	
 			 
-			  <input type="text" class="form-control" id="title_id" name="title" required value="<%=nota.getTitle()%>">
+			  <input type="text" class="form-control" id="title_id" name="title" required value="${titulo}">
 			</div>
 		
 			<!--Título:
 			<input type="text" name="title"><br><br>-->
 			<div class="form-group">
 			<label for="descricao"><b>Texto da nota *</b></label>
-			<textarea class = "textarea_1 form-control" rows="5" cols="111" name="novaNota" id ="descricao" required><%=nota.getNote()%></textarea><br><br>
+			<textarea class = "textarea_1 form-control" rows="5" cols="111" name="novaNota" id ="descricao" required>${texto}</textarea><br><br>
 			</div>
 			
 			
-			<%String link = "home.jsp?id="; 
-			link+= i;%>
-			<a href="home.jsp"><button class="btn btn-outline-success btn-lg btn-block" type="submit">Gravar</button></a>
+			<button class="btn btn-outline-success btn-lg btn-block" type="submit">Gravar</button>
 
 
 
@@ -91,7 +76,6 @@
 		
 		
 						<form action="RedirectUser">
-			<input type="hidden" name="id" value="<%=i%>" />
 						
 						<button class="btn btn-outline-danger btn-lg btn-block" type="submit">Cancelar</button>
 					</form>
