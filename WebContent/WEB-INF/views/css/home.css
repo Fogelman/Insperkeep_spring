@@ -1,0 +1,76 @@
+.col-8{
+     background-color: #ffc107;
+     border-radius: 10px;
+     border:1px solid black;
+     margin-top:5px;
+}
+.col-4{
+     width: 100px;
+     background-color: #007bffb3;
+     border-radius: 10px;
+     text-align: center;
+     border-top: 1px solid black;
+     border-right: 1px solid black;
+     border-bottom: 1px solid black;
+     margin-top:5px;
+}
+.add_button{
+     margin-top: 2px;
+     border:1px solid black;
+}
+
+a:link {
+    text-decoration: none;
+    color:black;
+}
+
+a:visited {
+    text-decoration: none;
+    color:black;
+}
+
+a:hover {
+    text-decoration: none;
+    color:blue;
+}
+
+a:active {
+    text-decoration: none;
+    color:black;
+}
+
+#tituloNotas{
+	background-color: white !important;
+	border:0;
+	border-radius: 0;
+}
+
+#tituloProjeto{
+	background-color: white !important;
+	border:0;
+	border-radius: 0;
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;	
+	border-top: 1px solid black;
+}
+
+#editarUsuario{
+	background-color: white !important;
+	border:0;
+	border-radius: 0;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;	
+	border-top: 1px solid black;
+}
+
+
+
+.buttons_nav{
+	margin-left: 10px;
+}
+
+.textarea_1 {
+    box-sizing: border-box;
+
+    width: 100%;
+}

@@ -23,12 +23,6 @@
 </head>
 <body>
 	
-	<%@ page import="javax.servlet.ServletException"%>
-	<%@ page import="javax.servlet.annotation.WebServlet"%>
-	<%@ page import="javax.servlet.http.HttpServlet"%>
-	<%@ page import="javax.servlet.http.HttpServletRequest"%>
-	<%@ page import="javax.servlet.http.HttpServletResponse"%>
-	
 	<div class="container">
 			
 			
@@ -53,29 +47,23 @@
 			 	
 			 				 	
 			 
-			  <input type="text" class="form-control" id="title_id" name="title" required value="${titulo}">
+			  <input type="text" class="form-control" id="title_id" name="titulo" required value="${titulo}">
 			</div>
 		
 			<!--Título:
 			<input type="text" name="title"><br><br>-->
 			<div class="form-group">
 			<label for="descricao"><b>Texto da nota *</b></label>
-			<textarea class = "textarea_1 form-control" rows="5" cols="111" name="novaNota" id ="descricao" required>${texto}</textarea><br><br>
+			<textarea class = "textarea_1 form-control" rows="5" cols="111" name="nota_text" id ="descricao" required>${texto}</textarea><br><br>
 			</div>
 			
 			
 			<button class="btn btn-outline-success btn-lg btn-block" type="submit">Gravar</button>
 
-
-
-
-
-<!-- 			<a href="home.jsp"><input type="submit" value="Enviar"></a>
-			<a href="home.jsp"><input type="button" value="Cancelar"></a> -->
 		</form>
 		
 		
-						<form action="RedirectUser">
+						<form action="InicialNota">
 						
 						<button class="btn btn-outline-danger btn-lg btn-block" type="submit">Cancelar</button>
 					</form>

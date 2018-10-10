@@ -20,8 +20,8 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
-
+<!-- <link href="css/main.css"> -->
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
 
 <!-- <link rel="stylesheet" type="text/css" href="css/test_style.css"> -->
 

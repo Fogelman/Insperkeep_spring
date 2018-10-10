@@ -13,19 +13,29 @@
 
 <!--  	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous" -->
-<link href="${pageContext.request.contextPath}/css/home.css"
-	rel="stylesheet">
-
-
+<link href="css/home.css" type="text/css" >
+<%@ page import="java.util.*,mvc.model.*,java.util.ArrayList"%>
+<%List<Nota> notas = (ArrayList<Nota>) request.getAttribute("notas"); %>
 
 <title>Home</title>
 </head>
 <body>
 
 	<div class="container">	
+	<jsp:include page="header.jsp" />
+
+				
+				<form action="FormNovaNota">
+				<button 
+				class="btn btn-outline-success btn-lg btn-block" type="submit" >Adicionar
+				nota</button>
+					</form>
+					
+
+				
+				
 		<table class="table table-hover">
 
-		<%-- <% if (${name} =! nulls) %> --%>
 			<thead>
 
 				<tr>
@@ -37,7 +47,39 @@
 				</tr>
 			</thead>
 			<tbody>
+<%
 
+							for (Nota nota : notas) {
+								String notaId = nota.getNoteId().toString();
+				
+								
+				%>
+				<tr>
+					<td><%=nota.getTitle()%></td>
+					<td class="max_width"><%=nota.getNote()%></td>
+					
+				<td>
+					<form action="FormEditaNota">
+						<input type="hidden" name="nota_id" value="<%=notaId%>" />
+						
+						<button class="btn btn-sm btn-primary btn-block" type="submit">Editar</button>
+					</form> 
+					
+					
+					
+					<form action="DeletaNota">
+						<input type="hidden" name="nota_id" value="<%=notaId%>" />
+						<button class="btn btn-sm btn-danger	 btn-block" type="submit">Deletar</button>
+					</form>
+					
+					</td>
+				</tr>
+				<%
+					}
+
+						
+
+				%>
 
 
 

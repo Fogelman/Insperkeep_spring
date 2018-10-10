@@ -28,10 +28,10 @@ public class DAO {
 	}
 
 
-	public List<Nota> getLista(String i) throws SQLException {
+	public List<Nota> getLista(Integer personId) throws SQLException {
 		List<Nota> notas = new ArrayList<Nota>();
 		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM nota WHERE person_id = ?");
-		stmt.setString(1, i);
+		stmt.setInt(1, personId);
 
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
