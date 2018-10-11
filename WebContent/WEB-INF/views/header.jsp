@@ -24,8 +24,7 @@
 
 
 
-		<form action="InicialNota">
-			<!-- <input type="hidden" name="id" value="" /> -->
+		<form action="InicialUsuario">
 			<button class="btn" type="submit">Administrar Usuários</button>
 		</form>
 
@@ -43,7 +42,6 @@
 
 	
 		<form action="InicialNota">
-			<!-- <input type="hidden" name="id" value="" /> -->
 			<button class="btn" type="submit">Gerenciar Notas</button>
 		</form>
 

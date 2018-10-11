@@ -1,24 +1,30 @@
 package mvc.controller;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import mvc.model.DAO;
-import mvc.model.Nota;
+//import mvc.model.Nota;
 import mvc.model.User;
 
 @Controller
 public class UsuarioController {
 
-	
+	DAO dao;
 	@RequestMapping("InicialUsuario")
-	public String InicialNota() {
+	public String InicialUsuario(Model model) throws SQLException {
+		DAO dao = new DAO();
+		ArrayList<User>  users =  (ArrayList<User>) dao.getUsers();
+		model.addAttribute("users", users);
+		
 		return "usersAdm";
 	}
 
@@ -27,10 +33,12 @@ public class UsuarioController {
 			@RequestParam(value = "password") String senha,
 			@RequestParam(value = "nome_completo") String nomeCompleto,
 			@RequestParam(value = "email") String email,
+			@RequestParam(value = "person_id") int personId,
 			@RequestParam(value = "adm") Integer admin) throws SQLException{
 		User user = new User();
 		DAO dao = new DAO();
 		
+		user.setId(personId);
 		user.setAdm(admin);
 		user.setEmail(email);
 		user.setNome(nomeCompleto);
@@ -59,6 +67,7 @@ public class UsuarioController {
 			@RequestParam(value = "password") String senha,
 			@RequestParam(value = "nome_completo") String nomeCompleto,
 			@RequestParam(value = "email") String email,
+			@RequestParam(value = "person_id") int personId,
 			@RequestParam(value = "adm") Integer admin) throws SQLException{
 		User user = new User();
 		DAO dao = new DAO();
@@ -68,6 +77,7 @@ public class UsuarioController {
 		user.setNome(nomeCompleto);
 		user.setPassword(senha);
 		user.setLogin(login);
+		user.setId(personId);
 	
 		dao.alteraUser(user);
 		dao.close();
@@ -83,6 +93,7 @@ public class UsuarioController {
 	public String callForm(@RequestParam(value = "person_id") Integer personId, ModelMap model) throws SQLException {
 		DAO dao = new DAO();
 		User user = dao.getSpecificUser(personId);
+		model.addAttribute("person_id", personId);
 		model.addAttribute("login", user.getLogin());
 		model.addAttribute("password", user.getPassword());
 		model.addAttribute("nomeCompleto", user.getNome());

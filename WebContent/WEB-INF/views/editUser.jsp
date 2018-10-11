@@ -1,4 +1,4 @@
-e<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,20 +22,11 @@ e<%@ page language="java" contentType="text/html; charset=UTF-8"
 <title>Editar usuário</title>
 </head>
 <body>
-	<%@ page import="javax.servlet.ServletException"%>
-	<%@ page import="javax.servlet.annotation.WebServlet"%>
-	<%@ page import="javax.servlet.http.HttpServlet"%>
-	<%@ page import="javax.servlet.http.HttpServletRequest"%>
-	<%@ page import="javax.servlet.http.HttpServletResponse"%>
+
 	
 	<div class="container">
 	
-		<%-- <jsp:include page="header.jsp">
-		
-		<jsp:param name="id_header" value = "<%=i%>" />
-		
-		
-		</jsp:include> --%>
+	<jsp:include page="header.jsp" />
 
 <br>
 
@@ -45,6 +36,8 @@ e<%@ page language="java" contentType="text/html; charset=UTF-8"
  
 			<div class="form-group">		 			 	
 			 
+			 <input type="hidden" name="person_id" value="${person_id}">
+			
 			<label for="title_id"><b>Login *</b></label>
 			<input type="text" class="form-control" id="title_id" name="login" required value="${login}">
 			
@@ -63,13 +56,14 @@ e<%@ page language="java" contentType="text/html; charset=UTF-8"
 			<p>1 - Caso seja administrador.</p>
 			</div>
 			
-			<a href="home.jsp"><button class="btn btn-outline-success btn-lg btn-block" type="submit">Gravar</button></a>
+			<button class="btn btn-outline-success btn-lg btn-block" type="submit">Gravar</button>
 		
 		
 		</form>
-		<form action="RedirectUserAdm">
-						<button class="btn btn-outline-danger btn-lg btn-block" type="submit">Cancelar</button>
-					</form>
+		<form action="InicialUsuario">
+
+			<button class="btn btn-outline-danger btn-lg btn-block" type="submit">Cancelar</button>
+		</form>
 	</div>
 
 </body>

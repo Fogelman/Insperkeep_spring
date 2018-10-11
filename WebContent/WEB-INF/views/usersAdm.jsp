@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" session = "true"%>
+	pageEncoding="UTF-8" session="true"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,59 +13,37 @@
 
 <!--  	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous" -->
-<link href="${pageContext.request.contextPath}/css/home.css"
+<link rel="stylesheet" href="css/home.css" type="text/css"
 	rel="stylesheet">
 
+<%@ page import="java.util.*,mvc.model.*"%>
+<%
+	List<User> users = (ArrayList<User>) request.getAttribute("users");
+%>
 
 
 <title>Home</title>
 </head>
 <body>
+
+
 	<div class="container">
-	<%
-		String i = "1";
-	%>
 
 
-	<%
-		try {
-			i = request.getAttribute("id").toString();
-		} catch (NullPointerException e) {
-			
-			/* i = "a"; */
-		
-		    String redirectURL = "index.jsp";
-		    response.sendRedirect(redirectURL);
+		<jsp:include page="header.jsp" />
 
-
-		}
-	%> 
-
-
-	<%
-	 if (i != "a") {
-
-		} %>
-	
-	
-	
-	<%String link_adicionar = "newUser.jsp?id=";
-		link_adicionar += i;
-	%>
-	
-	 	
-		<jsp:include page="header.jsp">
-		<jsp:param name="id_header" value = "<%=i%>" />
-		</jsp:include>
 		<%-- <h1><%= request.getAttribute("attributeKey") %></h1> --%>
-		<br> <a href=<%=link_adicionar%>><button type="button"
-				class="btn btn-outline-success btn-lg btn-block">Adicionar
-				Usuários</button></a>
-	
-	
+		<br>
+
+		<form action="FormNovoUsuario">
+			<button class="btn btn-outline-success btn-lg btn-block"
+				type="submit">Adicionar nota</button>
+		</form>
+
+
 		<table class="table table-hover">
 
-		<%-- <% if (${name} =! nulls) %> --%>
+			<%-- <% if (${name} =! nulls) %> --%>
 			<thead>
 
 				<tr>
@@ -78,30 +56,49 @@
 			</thead>
 			<tbody>
 
-				
-				
+				<%
+					for (User user : users) {
+						String personId = user.getId().toString();
+				%>
+
 				<tr>
-					<td></td>
-					<td></td>
-					
-					<td><a href= ><button class="btn btn-sm btn-primary btn-block" type="submit">Editar</button></a>
-				
-					<form action="DeletaUser">
-						<input type="hidden" name="person_id" value="" />
-						<input type="hidden" name="id" value=""/>
-						
-						<button class="btn btn-sm btn-danger	 btn-block" type="submit">Deletar</button>
-					</form>
-					
-					<!-- <button class="btn btn-sm btn-danger	 btn-block" type="button">Deletar</button> --></td>
+					<td><%=user.getLogin()%></td>
+					<td class="max_width"><%=user.getEmail()%></td>
+					<td>
+
+
+						<form action="FormEditaUsuario">
+							<input type="hidden" name="person_id" value="<%=personId%>" /> <input
+								type="hidden" name="id" value="" />
+
+							<button class="btn btn-sm btn-primary btn-block" type="submit">Editar</button>
+						</form>
+
+
+
+
+
+
+
+						<form action="DeletaUser">
+							<input type="hidden" name="person_id" value="<%=personId%>" />
+							<button class="btn btn-sm btn-danger	 btn-block" type="submit">Deletar</button>
+						</form>
+
+
+					</td>
 				</tr>
+
+				<%
+					}
+				%>
 
 
 			</tbody>
 		</table>
 
 
-	
+
 
 	</div>
 </body>

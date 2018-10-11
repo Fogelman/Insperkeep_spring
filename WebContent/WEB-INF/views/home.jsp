@@ -8,13 +8,17 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
+<link  rel="stylesheet" href="css/home.css" type="text/css" >
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 <!--  	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous" -->
-<link href="css/home.css" type="text/css" >
-<%@ page import="java.util.*,mvc.model.*,java.util.ArrayList"%>
+
+
+
+
+<%@ page import="java.util.*,mvc.model.*"%>
 <%List<Nota> notas = (ArrayList<Nota>) request.getAttribute("notas"); %>
 
 <title>Home</title>
