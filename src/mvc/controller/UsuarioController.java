@@ -33,12 +33,10 @@ public class UsuarioController {
 			@RequestParam(value = "password") String senha,
 			@RequestParam(value = "nome_completo") String nomeCompleto,
 			@RequestParam(value = "email") String email,
-			@RequestParam(value = "person_id") int personId,
 			@RequestParam(value = "adm") Integer admin) throws SQLException{
 		User user = new User();
 		DAO dao = new DAO();
 		
-		user.setId(personId);
 		user.setAdm(admin);
 		user.setEmail(email);
 		user.setNome(nomeCompleto);

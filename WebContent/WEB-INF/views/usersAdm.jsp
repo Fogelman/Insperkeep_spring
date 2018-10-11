@@ -37,7 +37,7 @@
 
 		<form action="FormNovoUsuario">
 			<button class="btn btn-outline-success btn-lg btn-block"
-				type="submit">Adicionar nota</button>
+				type="submit">Adicionar usuários</button>
 		</form>
 
 

@@ -28,7 +28,7 @@
 	<div class="container">	
 	<jsp:include page="header.jsp" />
 
-				
+				<br>
 				<form action="FormNovaNota">
 				<button 
 				class="btn btn-outline-success btn-lg btn-block" type="submit" >Adicionar
