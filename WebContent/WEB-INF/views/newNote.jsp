@@ -27,12 +27,7 @@
 	<div class="container">
 			
 			
-		<%-- <jsp:include page="header.jsp">
-		
-		<jsp:param name="id_header" value = "<%=i%>" />
-		
-		
-		</jsp:include> --%>
+		<jsp:include page="header.jsp" />
 
 <br>
 

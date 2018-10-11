@@ -14,60 +14,57 @@
 
 
 
-<link href="${pageContext.request.contextPath}/css/home.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/home.css"
+	rel="stylesheet">
 <%-- <link href="${pageContext.request.contextPath}/css/reset.css" rel="stylesheet"> --%>
-		
+
 
 
 <title>Editar nota</title>
 </head>
 <body>
-	
+
 	<div class="container">
-			
-			
-		<%-- <jsp:include page="header.jsp">
-		
-		<jsp:param name="id_header" value = "<%=i%>" />
-		
-		
-		</jsp:include> --%>
-
-<br>
 
 
-<form action="EditaNota">
+		<jsp:include page="header.jsp" />
+		<br>
+
+
+		<form action="EditaNota">
 			<!-- TODO: Passar os ids da nota e da pessoa aqui -->
 
-			
+
 			<input type="hidden" name="nota_id" value="${notaId}" />
-			
+
 			<div class="form-group">
-			  <label for="title_id"><b>Título da nota *</b></label>
-			 	
-			 				 	
-			 
-			  <input type="text" class="form-control" id="title_id" name="titulo" required value="${titulo}">
+				<label for="title_id"><b>Título da nota *</b></label> <input
+					type="text" class="form-control" id="title_id" name="titulo"
+					required value="${titulo}">
 			</div>
-		
+
 			<!--Título:
 			<input type="text" name="title"><br><br>-->
 			<div class="form-group">
-			<label for="descricao"><b>Texto da nota *</b></label>
-			<textarea class = "textarea_1 form-control" rows="5" cols="111" name="nota_text" id ="descricao" required>${texto}</textarea><br><br>
+				<label for="descricao"><b>Texto da nota *</b></label>
+				<textarea class="textarea_1 form-control" rows="5" cols="111"
+					name="nota_text" id="descricao" required>${texto}</textarea>
+				<br>
+				<br>
 			</div>
-			
-			
-			<button class="btn btn-outline-success btn-lg btn-block" type="submit">Gravar</button>
+
+
+			<button class="btn btn-outline-success btn-lg btn-block"
+				type="submit">Gravar</button>
 
 		</form>
-		
-		
-						<form action="InicialNota">
-						
-						<button class="btn btn-outline-danger btn-lg btn-block" type="submit">Cancelar</button>
-					</form>
-		
+
+
+		<form action="InicialNota">
+
+			<button class="btn btn-outline-danger btn-lg btn-block" type="submit">Cancelar</button>
+		</form>
+
 
 	</div>
 
