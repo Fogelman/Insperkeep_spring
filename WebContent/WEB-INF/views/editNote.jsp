@@ -52,6 +52,22 @@
 				<br>
 				<br>
 			</div>
+			
+			<div class="form-group">
+				<label><b>Traduzir texto</b></label>
+				<input name="traduz" type="checkbox">
+			</div>
+			
+			<div class="form-group">
+			<label><b>Para:</b></label>
+			<select name="linguaDesejada">
+			    <option value="es">Espanhol</option>
+				<option value="he">Hebraico</option>
+				<option value="en" selected>Inglês</option>
+			    <option value="pt">Português</option>
+			    <option value="yi">Yiddish</option>
+			  </select>
+			</div>
 
 
 			<button class="btn btn-outline-success btn-lg btn-block"
