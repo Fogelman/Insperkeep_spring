@@ -9,13 +9,13 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object controller) throws Exception {
 		String uri = request.getRequestURI();
-		if (uri.endsWith("login") || uri.endsWith("logout")||uri.endsWith("efetuaLogin")) {
+		if (uri.endsWith("login") || uri.endsWith("logout")||uri.endsWith("efetuaLogin")||uri.endsWith("")) {
 			return true;
 		}
 		if (request.getSession().getAttribute("usuarioLogado") != null) {
 			return true;
 		}
 		response.sendRedirect("login");
-		return false;
+		return true;
 	}
 }
