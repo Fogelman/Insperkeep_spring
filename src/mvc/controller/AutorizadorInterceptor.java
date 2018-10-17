@@ -1,5 +1,6 @@
 package mvc.controller;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,13 +10,15 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object controller) throws Exception {
 		String uri = request.getRequestURI();
-		if (uri.endsWith("login") || uri.endsWith("logout")||uri.endsWith("efetuaLogin")||uri.endsWith("")) {
+		if (uri.endsWith("login") || uri.endsWith("logout")||uri.endsWith("efetuaLogin")) {
 			return true;
 		}
 		if (request.getSession().getAttribute("usuarioLogado") != null) {
 			return true;
 		}
+		
 		response.sendRedirect("login");
 		return true;
+		
 	}
 }

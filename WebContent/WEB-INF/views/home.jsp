@@ -22,6 +22,8 @@
 <%List<Nota> notas = (ArrayList<Nota>) request.getAttribute("notas"); %>
 
 <title>Home</title>
+
+
 </head>
 <body>
 
@@ -90,7 +92,9 @@
 
 			</tbody>
 		</table>
-
+		<%String url = (String) session.getAttribute("gifUrl"); %>
+		<img alt=GIPHY src="<%=url%>" class="image_gif">
+		
 
 	
 
