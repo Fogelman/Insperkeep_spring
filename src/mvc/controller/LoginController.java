@@ -92,7 +92,7 @@ public class LoginController {
 		temas[6] = "cats";
 		
 		int  n = rand.nextInt(10);
-		int tema = rand.nextInt(temas.length);
+		int tema = rand.nextInt(temas.length -1);
 		String key = "SUA CHAVE";
 		URL url = new URL( "https://api.giphy.com/v1/gifs/translate?s="+temas[tema]+"&weirdness="+n+"&api_key="+key);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
