@@ -14,7 +14,7 @@
 		</ul>
 
 		<%String url = (String) session.getAttribute("gifUrl"); %>
-		<img alt=GIPHY src="<%=url%>" class="image_gif" width="25" height="25" frameBorder="0">
+		<img alt=GIPHY src="<%=url%>" class="image_gif">
 		
 
 
