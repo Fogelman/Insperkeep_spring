@@ -1,4 +1,4 @@
-package mvc.controller;
+package mvc.controller; 
 
 
 import java.io.BufferedReader;
@@ -50,7 +50,7 @@ public class NotaController {
 
 //	redirect:InicialNota
 
-
+	@RequestMapping("CriaNota")
 	public String adiciona(HttpSession session,@RequestParam(value = "titulo") String titulo,
 			@RequestParam(value = "nota_text") String texto,
 			@RequestParam(value = "traduz") boolean traduz,
@@ -138,7 +138,7 @@ public class NotaController {
 	private String[] traduzNota(String titulo,String texto,String lingua) throws IOException {
 		String[] traducoes = new String[2];
 		
-		String key = "trnsl.1.1.20181016T112405Z.62a99ca2ad75022a.5abd853bd07c6d313dfc6a47c2b98ab259567470";
+		String key = "";
 		String tituloTranslate = titulo;
 		String notaTranslate = texto;
 		String lang = lingua;

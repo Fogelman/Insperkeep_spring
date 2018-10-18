@@ -92,8 +92,7 @@
 
 			</tbody>
 		</table>
-		<%String url = (String) session.getAttribute("gifUrl"); %>
-		<img alt=GIPHY src="<%=url%>" class="image_gif">
+		
 		
 
 	

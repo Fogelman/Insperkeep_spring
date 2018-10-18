@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="css/header.css" />
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand" href="#">InsperKeep</a>
+		
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarText" aria-controls="navbarText"
 		aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +13,9 @@
 
 		</ul>
 
-
+		<%String url = (String) session.getAttribute("gifUrl"); %>
+		<img alt=GIPHY src="<%=url%>" class="image_gif">
+		
 
 
 		<%
@@ -29,7 +32,11 @@
 		</form>
 
 		<%
-			} 
+			}
+			
+			
+			
+			
 			/* else {
 				System.out.println("Usuário não definido");
 				System.out.println(admin);
@@ -40,7 +47,9 @@
  %>
 
 
-	
+
+		
+		
 		<form action="InicialNota">
 			<button class="btn" type="submit">Gerenciar Notas</button>
 		</form>

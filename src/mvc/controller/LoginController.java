@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import mvc.model.DAO;
 import mvc.model.User;
-
+import java.util.Random;
 @Controller
 public class LoginController {
 	@RequestMapping("/")
@@ -78,7 +78,23 @@ public class LoginController {
 	
 
 	private String gifUrl () throws IOException, ParseException {
-		URL url = new URL( "https://api.giphy.com/v1/gifs/translate?s=carro&weirdness=9&api_key=8vwIyzx663wh44O4bkZgP5ZdBjcfjuLo");
+		
+
+		Random rand = new Random();
+		
+		String [] temas = new String[6];
+		temas[0] = "beach";
+		temas[1] = "filmes";
+		temas[2] = "gretchen";
+		temas[3] = "run";
+		temas[4] = "the%20office";
+		temas[5] = "animals";
+		temas[6] = "cats";
+		
+		int  n = rand.nextInt(10);
+		int tema = rand.nextInt(temas.length);
+		String key = "SUA CHAVE";
+		URL url = new URL( "https://api.giphy.com/v1/gifs/translate?s="+temas[tema]+"&weirdness="+n+"&api_key="+key);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestMethod("GET");
 
@@ -103,7 +119,7 @@ public class LoginController {
 		
 		jsonObject = (JSONObject) jsonObject.get("data");
         jsonObject = (JSONObject) jsonObject.get("images");
-        jsonObject = (JSONObject) jsonObject.get("original");
+        jsonObject = (JSONObject) jsonObject.get("fixed_height_small");
         String gifUrl = (String) jsonObject.get("url");
         
 //        System.out.println(gifUrl);
